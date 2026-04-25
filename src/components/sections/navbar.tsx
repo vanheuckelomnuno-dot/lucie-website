@@ -88,7 +88,7 @@ export default function Navbar() {
           ))}
           <a
             href="#boek"
-            onClick={() => setOpen(false)}
+            onClick={(e) => { handleNavClick(e, '#boek'); setOpen(false) }}
             className="bg-[#0EA5E9] text-white text-sm font-black uppercase tracking-[0.2em] py-4 text-center mt-2 hover:bg-sky-600 transition-colors"
           >
             Boek Afspraak
