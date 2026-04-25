@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { CheckCircle } from 'lucide-react'
 
 const credentials = [
-  'Bachelor Kinesitherapie & Revalidatiewetenschappen',
   'Gecertificeerd Personal Trainer (NASM) — Hyrox specialist',
   'Gespecialiseerd in sportrevalidatie & blessurepreventie',
   'Gecertificeerd Dry Needling therapeut',

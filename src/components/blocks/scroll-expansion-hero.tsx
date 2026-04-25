@@ -49,6 +49,16 @@ const ScrollExpandMedia = ({
   }, [mediaType]);
 
   useEffect(() => {
+    const expand = () => {
+      setScrollProgress(1);
+      setMediaFullyExpanded(true);
+      setShowContent(true);
+    };
+    window.addEventListener('expandHero', expand);
+    return () => window.removeEventListener('expandHero', expand);
+  }, []);
+
+  useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
         setMediaFullyExpanded(false);

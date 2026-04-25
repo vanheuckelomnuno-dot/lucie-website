@@ -9,6 +9,15 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ]
 
+function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+  e.preventDefault()
+  window.dispatchEvent(new CustomEvent('expandHero'))
+  setTimeout(() => {
+    const el = document.querySelector(href)
+    el?.scrollIntoView({ behavior: 'smooth' })
+  }, 120)
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -35,6 +44,7 @@ export default function Navbar() {
             <a
               key={label}
               href={href}
+              onClick={(e) => handleNavClick(e, href)}
               className={`text-[11px] uppercase tracking-[0.25em] transition-colors duration-200 hover:text-[#0EA5E9] ${
                 scrolled ? 'text-slate-500' : 'text-white/80'
               }`}
@@ -47,6 +57,7 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#boek"
+          onClick={(e) => handleNavClick(e, '#boek')}
           className="hidden md:inline-flex items-center bg-[#0EA5E9] text-white text-[11px] font-black uppercase tracking-[0.2em] px-7 py-3 hover:bg-sky-600 transition-colors duration-200"
         >
           Boek Afspraak
@@ -69,7 +80,7 @@ export default function Navbar() {
             <a
               key={label}
               href={href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => { handleNavClick(e, href); setOpen(false) }}
               className="text-slate-600 text-sm uppercase tracking-[0.25em] py-1 hover:text-[#0EA5E9] transition-colors"
             >
               {label}

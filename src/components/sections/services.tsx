@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Dumbbell, Activity, Waves, TrendingUp, ArrowRight } from 'lucide-react'
+import { Dumbbell, Activity, Waves, TrendingUp } from 'lucide-react'
 
 const services = [
   {
@@ -91,13 +91,9 @@ export default function Services() {
               </div>
 
               <div className="mt-auto pt-4 border-t border-slate-100">
-                <p className="text-[#0EA5E9]/70 text-[10px] uppercase tracking-[0.2em] mb-3">
+                <p className="text-[#0EA5E9]/70 text-[10px] uppercase tracking-[0.2em]">
                   {svc.detail}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-slate-400 group-hover:text-[#0EA5E9] text-xs uppercase tracking-widest transition-colors duration-200">
-                  Meer info
-                  <ArrowRight size={12} className="translate-x-0 group-hover:translate-x-1 transition-transform duration-200" />
-                </span>
               </div>
             </motion.div>
           ))}
